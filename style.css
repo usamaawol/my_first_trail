@@ -1,198 +1,122 @@
-/* ------------------------------
-   GENERAL PAGE LAYOUT
---------------------------------*/
-body {
-    margin: 0;
-    padding: 0;
-    background: #111;
-    font-family: "Poppins", sans-serif;
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-    color: #fff;
+:root {
+  --bg: #f5f6fa;
+  --panel: #ffffff;
+  --panel-2: #f0f0f0;
+  --text: #333333;
+  --muted: #777777;
+  --primary: #4f8cff;
+  --accent: #ff6b6b;
+  --success: #1dd1a1;
+  --border: #dddddd;
 }
 
-.container {
-    display: flex;
-    gap: 20px;
-    width: 100%;
-    max-width: 1100px;
-    flex-wrap: wrap;
+/* -------------------------------
+   BASIC RESET
+---------------------------------*/
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); }
+button { font-family: inherit; }
+
+/* -------------------------------
+   APP LAYOUT
+---------------------------------*/
+.app {
+  max-width: 1100px;
+  margin: 24px auto;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 16px;
 }
 
-/* ------------------------------
-   CALCULATOR BOX
---------------------------------*/
+/* -------------------------------
+   CALCULATOR PANEL
+---------------------------------*/
 .calculator {
-    background: #1c1c1c;
-    padding: 20px;
-    border-radius: 15px;
-    width: 100%;
-    max-width: 420px;
-    box-shadow: 0 0 20px rgba(255,255,255,0.1);
+  background: linear-gradient(145deg, var(--panel), var(--panel-2));
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 }
 
-/* ------------------------------
-   TOP BAR
---------------------------------*/
+/* TOPBAR */
 .topbar {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.toggle { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; color: var(--muted); }
+.memory-controls { display: flex; gap: 8px; }
+
+/* DISPLAY */
+.display {
+  background: #e9ecef;
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 16px;
+  text-align: right;
+}
+.history-line { font-size: 12px; color: var(--muted); }
+.display-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 28px;
+  color: var(--text);
 }
 
-.angle-mode {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+/* KEYS GRID */
+.keys { display: grid; gap: 10px; }
+.row { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
 
-.small-btn {
-    font-size: 0.8rem;
-    padding: 5px 12px;
-}
-
-/* ------------------------------
-   DISPLAY AREA
---------------------------------*/
-.display-area {
-    background: #000;
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
-
-#historyLine {
-    height: 22px;
-    color: #aaa;
-    font-size: 0.9rem;
-}
-
-#display {
-    width: 100%;
-    background: transparent;
-    border: none;
-    outline: none;
-    color: #fff;
-    font-size: 2rem;
-    padding: 10px 0;
-    text-align: right;
-}
-
-/* ------------------------------
-   BUTTON GRID
---------------------------------*/
-.keys {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
-}
-
+/* BUTTONS */
 .btn {
-    background: #333;
-    border: none;
-    border-radius: 10px;
-    padding: 18px;
-    font-size: 1.2rem;
-    color: #fff;
-    cursor: pointer;
-    transition: 0.2s ease;
+  padding: 14px 0;
+  font-size: 16px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #fff;
+  background: #7f8fa6;
+  box-shadow: 0 4px #57606f;
 }
+.btn:hover { filter: brightness(1.1); }
+.btn:active { transform: translateY(2px); box-shadow: 0 2px #57606f; }
 
-.btn:hover {
-    background: #444;
+/* FUNCTION BUTTONS */
+.func { background: #4cd137; box-shadow: 0 4px #27ae60; }
+.op { background: #ffa502; box-shadow: 0 4px #e67e22; }
+.btn-accent { background: #ff4757; box-shadow: 0 4px #c0392b; }
+.btn-primary { background: #1e90ff; box-shadow: 0 4px #2c3e50; }
+
+/* WIDE BUTTONS */
+.wide { grid-column: span 2; }
+
+/* HISTORY PANEL */
+.history {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 16px;
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
+.history-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.history-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.history-list li { background: #f1f2f6; padding: 10px; border-radius: 10px; cursor: pointer; transition: 0.2s; }
+.history-list li:hover { background: #dcdde1; }
+.history-exp { font-size: 12px; color: var(--muted); }
+.history-res { font-size: 16px; font-weight: bold; }
 
-.btn:active {
-    background: #555;
-}
-
-/* Wide buttons */
-.wide {
-    grid-column: span 2;
-}
-
-/* Equal button */
-.equal {
-    background: #0a84ff;
-}
-
-.equal:hover {
-    background: #0b75d9;
-}
-
-/* ------------------------------
-   HISTORY BOX
---------------------------------*/
-.history-box {
-    background: #1c1c1c;
-    padding: 20px;
-    border-radius: 15px;
-    width: 100%;
-    max-width: 350px;
-    height: fit-content;
-}
-
-.history-box h3 {
-    margin-top: 0;
-    margin-bottom: 10px;
-}
-
-#historyList {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-#historyList li {
-    background: #222;
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 8px;
-    cursor: pointer;
-}
-
-#historyList li:hover {
-    background: #333;
-}
-
-.history-exp {
-    color: #aaa;
-    font-size: 0.85rem;
-}
-
-.history-res {
-    font-size: 1.1rem;
-    font-weight: bold;
-}
-
-/* ------------------------------
-   RESPONSIVENESS
---------------------------------*/
-
-/* Tablets & Small Screens */
+/* RESPONSIVE */
 @media (max-width: 900px) {
-    .container {
-        justify-content: center;
-    }
-
-    .history-box {
-        max-width: 100%;
-    }
+  .app { grid-template-columns: 1fr; }
+  .row { grid-template-columns: repeat(4, 1fr); }
+  .wide { grid-column: span 2; }
 }
 
-/* Phones */
-@media (max-width: 600px) {
-    .calculator {
-        max-width: 100%;
-    }
 
-    #display {
-        font-size: 1.6rem;
-    }
 
-    .btn {
-        padding: 15px;
-        font-size: 1.05rem;
-    }
-}
