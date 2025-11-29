@@ -4,105 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scientific Calculator</title>
-
-    <!-- Link CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <div class="container">
+<div class="calculator">
+    <div id="historyLine"></div>
+    <input id="display" readonly placeholder="0">
 
-        <!-- Calculator Box -->
-        <div class="calculator">
+    <label class="mode-label">
+        <input type="checkbox" id="degToggle"> DEG
+    </label>
 
-            <!-- Top Bar -->
-            <div class="topbar">
-                <label class="angle-mode">
-                    <input type="checkbox" id="degToggle">
-                    <span id="angleLabel">RAD</span>
-                </label>
+    <div class="keypad">
+        <!-- Row 1 -->
+        <button data-action="clear">C</button>
+        <button data-action="backspace">⌫</button>
+        <button data-insert="(">(</button>
+        <button data-insert=")">)</button>
+        <button data-insert="/" class="operator">÷</button>
 
-                <button class="btn small-btn" id="clearHistory">Clear History</button>
-            </div>
+        <!-- Row 2 -->
+        <button data-insert="7">7</button>
+        <button data-insert="8">8</button>
+        <button data-insert="9">9</button>
+        <button data-insert="*" class="operator">×</button>
+        <button data-insert="^">^</button>
 
-            <!-- Display -->
-            <div class="display-area">
-                <div id="historyLine" class="history-line"></div>
-                <input type="text" id="display" placeholder="0" readonly>
-            </div>
+        <!-- Row 3 -->
+        <button data-insert="4">4</button>
+        <button data-insert="5">5</button>
+        <button data-insert="6">6</button>
+        <button data-insert="-" class="operator">-</button>
+        <button data-insert="π">π</button>
 
-            <!-- Keys -->
-            <div class="keys">
+        <!-- Row 4 -->
+        <button data-insert="1">1</button>
+        <button data-insert="2">2</button>
+        <button data-insert="3">3</button>
+        <button data-insert="+" class="operator">+</button>
+        <button data-insert="√">√</button>
 
-                <!-- Row 1 -->
-                <button class="btn" data-fn="sin">sin</button>
-                <button class="btn" data-fn="cos">cos</button>
-                <button class="btn" data-fn="tan">tan</button>
-                <button class="btn" data-insert="^">^</button>
+        <!-- Row 5 -->
+        <button data-insert="0">0</button>
+        <button data-insert=".">.</button>
+        <button data-action="equals" class="equals">=</button>
+        <button data-fn="sin">sin</button>
+        <button data-fn="cos">cos</button>
 
-                <!-- Row 2 -->
-                <button class="btn" data-fn="asin">asin</button>
-                <button class="btn" data-fn="acos">acos</button>
-                <button class="btn" data-fn="atan">atan</button>
-                <button class="btn" data-fn="sqrt">√</button>
-
-                <!-- Row 3 -->
-                <button class="btn" data-insert="pi">π</button>
-                <button class="btn" data-insert="e">e</button>
-                <button class="btn" data-fn="log">log</button>
-                <button class="btn" data-fn="ln">ln</button>
-
-                <!-- Row 4 -->
-                <button class="btn" data-insert="(">(</button>
-                <button class="btn" data-insert=")">)</button>
-                <button class="btn" data-fn="fact">!</button>
-                <button class="btn" data-action="backspace">⌫</button>
-
-                <!-- Row 5 -->
-                <button class="btn" data-action="mc">MC</button>
-                <button class="btn" data-action="mr">MR</button>
-                <button class="btn" data-action="mplus">M+</button>
-                <button class="btn" data-action="mminus">M-</button>
-
-                <!-- Row 6 (numbers) -->
-                <button class="btn" data-insert="7">7</button>
-                <button class="btn" data-insert="8">8</button>
-                <button class="btn" data-insert="9">9</button>
-                <button class="btn" data-insert="/">÷</button>
-
-                <button class="btn" data-insert="4">4</button>
-                <button class="btn" data-insert="5">5</button>
-                <button class="btn" data-insert="6">6</button>
-                <button class="btn" data-insert="*">×</button>
-
-                <button class="btn" data-insert="1">1</button>
-                <button class="btn" data-insert="2">2</button>
-                <button class="btn" data-insert="3">3</button>
-                <button class="btn" data-insert="-">−</button>
-
-                <button class="btn" data-insert="0">0</button>
-                <button class="btn" data-insert=".">.</button>
-                <button class="btn equal" data-action="equals">=</button>
-                <button class="btn" data-insert="+">+</button>
-
-                <button class="btn wide" data-action="clear">C</button>
-                <button class="btn wide" data-action="allclear">AC</button>
-
-            </div>
-        </div>
-
-        <!-- History Area -->
-        <div class="history-box">
-            <h3>History</h3>
-            <ul id="historyList"></ul>
-        </div>
-
+        <!-- Row 6 -->
+        <button data-fn="tan">tan</button>
+        <button data-fn="log">log</button>
+        <button data-fn="ln">ln</button>
+        <button data-fn="fact">!</button>
+        <button data-insert="Ans">Ans</button>
     </div>
 
-    <!-- Calculator Logic -->
-    <script src="script.js"></script>
+    <ul id="historyList"></ul>
+</div>
 
+<script src="script.js"></script>
 </body>
 </html>
-

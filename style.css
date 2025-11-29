@@ -1,127 +1,88 @@
-:root {
-  --bg: #f5f6fa;
-  --panel: #ffffff;
-  --panel-2: #f0f0f0;
-  --text: #333333;
-  --muted: #777777;
-  --primary: #4f8cff;
-  --accent: #ff6b6b;
-  --success: #1dd1a1;
-  --border: #dddddd;
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+    margin: 0;
 }
 
-/* -------------------------------
-   BASIC RESET
----------------------------------*/
-* { box-sizing: border-box; }
-html, body { height: 100%; margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); }
-button { font-family: inherit; }
-
-/* -------------------------------
-   APP LAYOUT
----------------------------------*/
-.app {
-  max-width: 1100px;
-  margin: 24px auto;
-  padding: 16px;
-  display: grid;
-  grid-template-columns: 1fr 320px;
-  gap: 16px;
-}
-
-/* -------------------------------
-   CALCULATOR PANEL
----------------------------------*/
 .calculator {
-  background: linear-gradient(145deg, var(--panel), var(--panel-2));
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    width: 360px;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-/* TOPBAR */
-.topbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 12px;
-}
-.toggle { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; color: var(--muted); }
-.memory-controls { display: flex; gap: 8px; }
-
-/* DISPLAY */
-.display {
-  background: #e9ecef;
-  border-radius: 12px;
-  padding: 12px;
-  margin-bottom: 16px;
-  text-align: right;
-}
-.history-line { font-size: 12px; color: var(--muted); }
-.display-input {
-  width: 100%;
-  background: transparent;
-  border: none;
-  outline: none;
-  font-size: 28px;
-  color: var(--text);
+#display {
+    width: 100%;
+    height: 60px;
+    font-size: 26px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    background: #fafafa;
 }
 
-/* KEYS GRID */
-.keys { display: grid; gap: 10px; }
-.row { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
-
-/* BUTTONS */
-.btn {
-  padding: 12px 0;
-  font-size: 16px;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  color: #fff;
-  background: #7f8fa6;
-  box-shadow: 0 3px #57606f;
+#historyLine {
+    text-align: right;
+    margin-bottom: 8px;
+    color: #555;
 }
-.btn:hover { filter: brightness(1.1); }
-.btn:active { transform: translateY(2px); box-shadow: 0 1px #57606f; }
 
-/* FUNCTION BUTTONS */
-.func { background: #4cd137; box-shadow: 0 3px #27ae60; }
-.op { background: #ffa502; box-shadow: 0 3px #e67e22; }
-.btn-accent { background: #ff4757; box-shadow: 0 3px #c0392b; }
-.btn-primary { background: #1e90ff; box-shadow: 0 3px #2c3e50; }
-
-/* WIDE BUTTONS */
-.wide { grid-column: span 2; }
-
-/* HISTORY PANEL */
-.history {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 16px;
-  max-height: calc(100vh - 80px);
-  overflow-y: auto;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+.mode-label {
+    display: block;
+    margin-bottom: 12px;
+    font-weight: bold;
 }
-.history-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-.history-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
-.history-list li { background: #f1f2f6; padding: 10px; border-radius: 10px; cursor: pointer; transition: 0.2s; }
-.history-list li:hover { background: #dcdde1; }
-.history-exp { font-size: 12px; color: var(--muted); }
-.history-res { font-size: 16px; font-weight: bold; }
 
-/* RESPONSIVE */
-@media (max-width: 1100px) {
-  .app { grid-template-columns: 1fr; }
-  .row { grid-template-columns: repeat(4, 1fr); }
-  .wide { grid-column: span 2; }
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
 }
-@media (max-width: 600px) {
-  .calculator { padding: 16px; }
-  .btn { padding: 10px 0; font-size: 14px; }
-  .display-input { font-size: 24px; }
+
+.keypad button {
+    padding: 15px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    background: #e6e6e6;
+    cursor: pointer;
+    transition: 0.2s;
 }
+
+.keypad button:active {
+    background: #ccc;
+}
+
+.operator {
+    background: #ffcc80;
+}
+
+.equals {
+    background: #7bdc7b;
+    font-weight: bold;
+}
+
+#historyList {
+    max-height: 130px;
+    overflow-y: auto;
+    background: #fafafa;
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#historyList li {
+    padding: 6px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}
+
+
 
 
 
