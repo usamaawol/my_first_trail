@@ -68,12 +68,12 @@ button { font-family: inherit; }
 }
 
 /* KEYS GRID */
-.keys { display: grid; gap: 8px; }
-.row { display: grid; grid-template-columns: repeat(6, minmax(50px, 1fr)); gap: 8px; }
+.keys { display: grid; gap: 10px; }
+.row { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
 
 /* BUTTONS */
 .btn {
-  height: 50px;            /* fixed height */
+  padding: 12px 0;
   font-size: 16px;
   border: none;
   border-radius: 12px;
@@ -81,20 +81,19 @@ button { font-family: inherit; }
   transition: all 0.2s ease;
   color: #fff;
   background: #7f8fa6;
-  box-shadow: 0 4px #57606f;
-  min-width: 50px;         /* prevents stretching */
+  box-shadow: 0 3px #57606f;
 }
 .btn:hover { filter: brightness(1.1); }
-.btn:active { transform: translateY(2px); box-shadow: 0 2px #57606f; }
+.btn:active { transform: translateY(2px); box-shadow: 0 1px #57606f; }
 
 /* FUNCTION BUTTONS */
-.func { background: #4cd137; box-shadow: 0 4px #27ae60; }
-.op { background: #ffa502; box-shadow: 0 4px #e67e22; }
-.btn-accent { background: #ff4757; box-shadow: 0 4px #c0392b; }
-.btn-primary { background: #1e90ff; box-shadow: 0 4px #2c3e50; }
+.func { background: #4cd137; box-shadow: 0 3px #27ae60; }
+.op { background: #ffa502; box-shadow: 0 3px #e67e22; }
+.btn-accent { background: #ff4757; box-shadow: 0 3px #c0392b; }
+.btn-primary { background: #1e90ff; box-shadow: 0 3px #2c3e50; }
 
 /* WIDE BUTTONS */
-.wide { grid-column: span 2; max-width: 120px; }
+.wide { grid-column: span 2; }
 
 /* HISTORY PANEL */
 .history {
@@ -113,8 +112,17 @@ button { font-family: inherit; }
 .history-res { font-size: 16px; font-weight: bold; }
 
 /* RESPONSIVE */
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
   .app { grid-template-columns: 1fr; }
-  .row { grid-template-columns: repeat(4, minmax(50px, 1fr)); }
-  .wide { grid-column: span 2; max-width: none; }
+  .row { grid-template-columns: repeat(4, 1fr); }
+  .wide { grid-column: span 2; }
 }
+@media (max-width: 600px) {
+  .calculator { padding: 16px; }
+  .btn { padding: 10px 0; font-size: 14px; }
+  .display-input { font-size: 24px; }
+}
+
+
+
+
